@@ -30,7 +30,7 @@ class LanguageButton extends StatelessWidget {
                 children: [
                   const SizedBox(width: 20),
                   CustomIconButton(
-                    onPressed: () => Navigator.pop(context),
+                    onTap: () => Navigator.pop(context),
                     icon: Icons.close,
                   ),
                   const SizedBox(width: 10),

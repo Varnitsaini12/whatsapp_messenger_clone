@@ -39,7 +39,7 @@ class VerificationPage extends ConsumerWidget {
         centerTitle: true,
         actions: [
           CustomIconButton(
-            onPressed: () {},
+            onTap: () {},
             icon: Icons.more_vert,
           ),
         ],

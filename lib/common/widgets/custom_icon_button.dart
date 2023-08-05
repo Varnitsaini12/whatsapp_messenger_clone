@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomIconButton extends StatelessWidget {
   const CustomIconButton({
     Key? key,
-    required this.onPressed,
+    required this.onTap,
     required this.icon,
     this.iconColor,
     this.iconSize,
@@ -12,7 +12,7 @@ class CustomIconButton extends StatelessWidget {
     this.border,
   }) : super(key: key);
 
-  final VoidCallback onPressed;
+  final VoidCallback onTap;
   final IconData icon;
   final Color? iconColor;
   final double? iconSize;
@@ -29,7 +29,7 @@ class CustomIconButton extends StatelessWidget {
         border: border,
       ),
       child: IconButton(
-        onPressed: onPressed,
+        onPressed: onTap,
         splashColor: Colors.transparent,
         splashRadius: (minWidth ?? 45) - 25,
         iconSize: iconSize ?? 22,

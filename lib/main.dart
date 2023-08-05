@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
       darkTheme: DarkTheme(),
       themeMode: ThemeMode.system,
       title: 'WhatsApp Me',
-      home: const WelcomePage(),
+      home: const UserInfoPage(),
       onGenerateRoute: Routes.onGenerateRoute,
     );
   }
