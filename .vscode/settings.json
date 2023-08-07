@@ -1,3 +1,4 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "cmake.sourceDirectory": "C:/Flutter/Flutter_Dev/Flutter_learn/whatsapp_messenger/android/linux/flutter"
 }
