@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   photo_manager: ^2.7.1
   url_launcher: ^6.1.12
+  flutter_contacts: ^1.1.7+1
 
 dev_dependencies:
   flutter_test:

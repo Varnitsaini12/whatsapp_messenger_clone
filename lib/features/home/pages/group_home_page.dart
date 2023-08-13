@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_messenger/common/extensions/custom_theme_extension.dart';
 // import 'package:whatsapp_messenger/common/extensions/custom_theme_extension.dart';
 import 'package:whatsapp_messenger/common/utils/coloors.dart';
 // import 'package:whatsapp_messenger/common/extensions/custom_theme_extension.dart';
@@ -48,10 +49,11 @@ class GroupHomePage extends StatelessWidget {
               textAlign: TextAlign.center,
               text: TextSpan(
                 children: [
-                  const TextSpan(
+                  TextSpan(
                     text:
                         'Communities bring members together in a topic-based groups, make it easy ti get admin announcements. Any community you'
                         're added will apppear here. ',
+                    style: TextStyle(color: context.theme.greyColor)
                   ),
                   TextSpan(
                     text: 'Learn more',
