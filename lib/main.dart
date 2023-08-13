@@ -1,12 +1,18 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:whatsapp_messenger/common/extensions/custom_theme_extension.dart';
+// import 'package:whatsapp_messenger/common/extensions/custom_theme_extension.dart';
 import 'package:whatsapp_messenger/common/routes/routes.dart';
 import 'package:whatsapp_messenger/common/theme/dark_theme.dart';
 import 'package:whatsapp_messenger/common/theme/light_theme.dart';
+import 'package:whatsapp_messenger/common/utils/coloors.dart';
+import 'package:whatsapp_messenger/features/auth/controller/auth_controller.dart';
+import 'package:whatsapp_messenger/features/contact/pages/contact_page.dart';
 // import 'package:whatsapp_messenger/features/auth/pages/login_page.dart';
-import 'package:whatsapp_messenger/features/auth/pages/user_info_page.dart';
+// import 'package:whatsapp_messenger/features/auth/pages/user_info_page.dart';
+import 'package:whatsapp_messenger/features/home/pages/home/home_page.dart';
 import 'package:whatsapp_messenger/features/welcome/pages/welcome_page.dart';
 import 'package:whatsapp_messenger/firebase_options.dart';
 // import 'package:whatsapp_messenger/features/auth/pages/verification_page.dart';
@@ -24,18 +30,40 @@ void main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: LightTheme(),
-      darkTheme: DarkTheme(),
+      theme: lightTheme(),
+      darkTheme: darkTheme(),
       themeMode: ThemeMode.system,
       title: 'WhatsApp Me',
-      home: const UserInfoPage(),
+      // home: const ContactPage(),
+      home: ref.watch(userInfoAuthProvider).when(
+        data: (user) {
+          if (user == null) {
+            return const WelcomePage();
+          }
+          return const HomePage();
+        },
+        error: (error, trace) {
+          return const Scaffold(
+            body: Center(
+              child: Text('Something went wrong!'),
+            ),
+          );
+        },
+        loading: () {
+          return const Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(color: Coloors.greenDark),
+            ),
+          );
+        },
+      ),
       onGenerateRoute: Routes.onGenerateRoute,
     );
   }
