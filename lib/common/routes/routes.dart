@@ -4,6 +4,7 @@ import 'package:whatsapp_messenger/common/models/user_model.dart';
 import 'package:whatsapp_messenger/features/auth/pages/login_page.dart';
 import 'package:whatsapp_messenger/features/auth/pages/user_info_page.dart';
 import 'package:whatsapp_messenger/features/auth/pages/verification_page.dart';
+import 'package:whatsapp_messenger/features/chat/pages/chat_page.dart';
 import 'package:whatsapp_messenger/features/contact/pages/contact_page.dart';
 import 'package:whatsapp_messenger/features/home/pages/chat_home_page.dart';
 import 'package:whatsapp_messenger/features/home/pages/home/home_page.dart';
@@ -52,7 +53,7 @@ class Routes {
       case chat:
         final UserModel user = settings.arguments as UserModel;
         return MaterialPageRoute(
-          builder: (context) => const ChatHomePage(),
+          builder: (context) => ChatPage(user: user,),
         );
       default:
         return MaterialPageRoute(

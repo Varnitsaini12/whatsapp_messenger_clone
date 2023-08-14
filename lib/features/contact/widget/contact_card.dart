@@ -43,7 +43,7 @@ class ContactCard extends StatelessWidget {
           fontWeight: FontWeight.w500,
         ),
       ),
-      subtitle: contactSource.uid.isNotEmpty
+      subtitle: contactSource.profileImageUrl.isNotEmpty
           ? Text(
               "Hey there! I'm using WhatsApp",
               style: TextStyle(
@@ -52,7 +52,7 @@ class ContactCard extends StatelessWidget {
               ),
             )
           : null,
-      trailing: contactSource.uid.isEmpty
+      trailing: contactSource.profileImageUrl.isEmpty
           ? TextButton(
               onPressed: onTap,
               style: TextButton.styleFrom(

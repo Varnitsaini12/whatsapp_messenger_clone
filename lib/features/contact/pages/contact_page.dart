@@ -89,6 +89,10 @@ class ContactPage extends ConsumerWidget {
                                 text: 'New contact',
                                 trailing: Icons.qr_code,
                               ),
+                              myListTile(
+                                leading: Icons.groups_3,
+                                text: 'New community',
+                              ),
                               Padding(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 20,

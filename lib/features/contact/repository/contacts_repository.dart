@@ -43,12 +43,14 @@ class ContactsRepository {
           if (!isContactFound) {
             phoneContacts.add(
               UserModel(
-                  username: contact.displayName,
-                  uid: '',
-                  profileImageUrl: '',
-                  active: false,
-                  phoneNumber: contact.phones[0].number.replaceAll(' ', ''),
-                  groupId: []),
+                username: contact.displayName,
+                uid: '',
+                profileImageUrl: '',
+                active: false,
+                lastSeen: 0,
+                phoneNumber: contact.phones[0].number.replaceAll(' ', ''),
+                groupId: [],
+              ),
             );
           }
           isContactFound = false;
