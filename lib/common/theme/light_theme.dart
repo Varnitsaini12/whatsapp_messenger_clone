@@ -69,5 +69,8 @@ ThemeData lightTheme() {
       thumbColor: MaterialStatePropertyAll(Color(0xFF83939C)),
       trackColor: MaterialStatePropertyAll(Color(0xFFDADFE2)),
     ),
+    dividerTheme: const DividerThemeData(
+      color: Color.fromARGB(242, 240, 240, 240),
+    ),
   );
 }

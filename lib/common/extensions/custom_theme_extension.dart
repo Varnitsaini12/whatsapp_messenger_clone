@@ -17,6 +17,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     authAppbarTextColor: Coloors.greenLight,
     photoIconBgColor: Color(0xFFF0F2F3),
     photoIconColor: Color(0XFF90AAAB),
+    profilePageBg: Color(0XFFF7F8FA),
   );
 
   static const darkMode = CustomThemeExtension(
@@ -28,6 +29,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     authAppbarTextColor: Colors.white,
     photoIconBgColor: Color(0xFF283339),
     photoIconColor: Color(0XFF61717B),
+    profilePageBg: Color(0XFF0B141A),
   );
 
   final Color? circleImageColor;
@@ -38,6 +40,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
   final Color? authAppbarTextColor;
   final Color? photoIconBgColor;
   final Color? photoIconColor;
+  final Color? profilePageBg;
 
   const CustomThemeExtension({
     this.photoIconBgColor,
@@ -48,6 +51,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     this.langBtnBgColor,
     this.langBtnHighlightColor,
     this.authAppbarTextColor,
+    this.profilePageBg,
   });
 
   @override
@@ -60,6 +64,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     Color? authAppbarTextColor,
     Color? photoIconBgColor,
     Color? photoIconColor,
+    Color? profilePageBg,
   }) {
     return CustomThemeExtension(
       circleImageColor: circleImageColor ?? this.circleImageColor,
@@ -71,6 +76,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
       authAppbarTextColor: authAppbarTextColor ?? this.authAppbarTextColor,
       photoIconBgColor: photoIconBgColor ?? this.photoIconBgColor,
       photoIconColor : photoIconColor ?? this.photoIconColor,
+      profilePageBg : profilePageBg ?? this.profilePageBg,
     );
   }
 

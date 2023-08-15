@@ -1,12 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:whatsapp_messenger/common/models/user_model.dart';
 import 'package:whatsapp_messenger/features/auth/pages/login_page.dart';
 import 'package:whatsapp_messenger/features/auth/pages/user_info_page.dart';
 import 'package:whatsapp_messenger/features/auth/pages/verification_page.dart';
 import 'package:whatsapp_messenger/features/chat/pages/chat_page.dart';
+import 'package:whatsapp_messenger/features/chat/pages/profile_page.dart';
 import 'package:whatsapp_messenger/features/contact/pages/contact_page.dart';
-import 'package:whatsapp_messenger/features/home/pages/chat_home_page.dart';
 import 'package:whatsapp_messenger/features/home/pages/home/home_page.dart';
 import 'package:whatsapp_messenger/features/welcome/pages/welcome_page.dart';
 
@@ -18,6 +18,7 @@ class Routes {
   static const String home = 'home';
   static const String contact = 'contact';
   static const String chat = 'chat';
+  static const String profile = 'profile';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -38,9 +39,11 @@ class Routes {
           ),
         );
       case userInfo:
-      final String? profileImageUrl = settings.arguments as String?;
+        final String? profileImageUrl = settings.arguments as String?;
         return MaterialPageRoute(
-          builder: (context) => UserInfoPage(profileImageUrl: profileImageUrl,),
+          builder: (context) => UserInfoPage(
+            profileImageUrl: profileImageUrl,
+          ),
         );
       case home:
         return MaterialPageRoute(
@@ -53,7 +56,16 @@ class Routes {
       case chat:
         final UserModel user = settings.arguments as UserModel;
         return MaterialPageRoute(
-          builder: (context) => ChatPage(user: user,),
+          builder: (context) => ChatPage(
+            user: user,
+          ),
+        );
+      case profile:
+        final UserModel user = settings.arguments as UserModel;
+        return PageTransition(
+          child: ProfilePage(user: user),
+          type: PageTransitionType.fade,
+          duration: const Duration(milliseconds: 800),
         );
       default:
         return MaterialPageRoute(

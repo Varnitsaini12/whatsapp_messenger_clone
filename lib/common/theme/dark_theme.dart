@@ -72,5 +72,8 @@ ThemeData darkTheme() {
       thumbColor: MaterialStatePropertyAll(Coloors.greyDark),
       trackColor: MaterialStatePropertyAll(Color(0xFF344047)),
     ),
+    dividerTheme: const DividerThemeData(
+      color: Color.fromARGB(209, 5, 20, 16),
+    ),
   );
 }
