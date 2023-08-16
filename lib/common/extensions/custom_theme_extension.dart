@@ -18,6 +18,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     photoIconBgColor: Color(0xFFF0F2F3),
     photoIconColor: Color(0XFF90AAAB),
     profilePageBg: Color(0XFFF7F8FA),
+    chatTextFieldBg: Colors.white,
   );
 
   static const darkMode = CustomThemeExtension(
@@ -30,6 +31,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     photoIconBgColor: Color(0xFF283339),
     photoIconColor: Color(0XFF61717B),
     profilePageBg: Color(0XFF0B141A),
+    chatTextFieldBg: Coloors.greyBackground
   );
 
   final Color? circleImageColor;
@@ -41,6 +43,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
   final Color? photoIconBgColor;
   final Color? photoIconColor;
   final Color? profilePageBg;
+  final Color? chatTextFieldBg;
 
   const CustomThemeExtension({
     this.photoIconBgColor,
@@ -52,6 +55,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     this.langBtnHighlightColor,
     this.authAppbarTextColor,
     this.profilePageBg,
+    this.chatTextFieldBg,
   });
 
   @override
@@ -65,6 +69,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     Color? photoIconBgColor,
     Color? photoIconColor,
     Color? profilePageBg,
+    Color? chatTextFieldBg,
   }) {
     return CustomThemeExtension(
       circleImageColor: circleImageColor ?? this.circleImageColor,
@@ -77,6 +82,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
       photoIconBgColor: photoIconBgColor ?? this.photoIconBgColor,
       photoIconColor : photoIconColor ?? this.photoIconColor,
       profilePageBg : profilePageBg ?? this.profilePageBg,
+      chatTextFieldBg : chatTextFieldBg ?? this.chatTextFieldBg,
     );
   }
 
@@ -97,6 +103,10 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
           Color.lerp(photoIconBgColor, other.photoIconBgColor, t),
       photoIconColor:
           Color.lerp(photoIconColor, other.photoIconColor, t),
+      profilePageBg:
+          Color.lerp(profilePageBg, other.profilePageBg, t),
+      chatTextFieldBg:
+          Color.lerp(chatTextFieldBg, other.chatTextFieldBg, t),
     );
   }
 }

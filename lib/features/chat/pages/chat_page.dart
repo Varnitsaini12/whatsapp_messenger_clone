@@ -1,15 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_messenger/common/extensions/custom_theme_extension.dart';
 import 'package:whatsapp_messenger/common/models/user_model.dart';
 import 'package:whatsapp_messenger/common/routes/routes.dart';
 import 'package:whatsapp_messenger/common/widgets/custom_icon_button.dart';
+import 'package:whatsapp_messenger/features/chat/widgets/chat_text_field.dart';
 
 class ChatPage extends StatelessWidget {
   const ChatPage({super.key, required this.user});
 
   final UserModel user;
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,9 @@ class ChatPage extends StatelessWidget {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      image: CachedNetworkImageProvider(user.profileImageUrl,),
+                      image: CachedNetworkImageProvider(
+                        user.profileImageUrl,
+                      ),
                     ),
                   ),
                 ),
@@ -50,7 +52,7 @@ class ChatPage extends StatelessWidget {
             );
           },
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 3,vertical: 5),
+            padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -88,6 +90,25 @@ class ChatPage extends StatelessWidget {
             onTap: () {},
             icon: Icons.more_vert,
             iconColor: Colors.white,
+          ),
+        ],
+      ),
+      body: Stack(
+        children: [
+          Image(
+            height: double.maxFinite,
+            width: double.maxFinite,
+            image: const AssetImage('assets/images/doodle_bg.png'),
+            fit: BoxFit.fill,
+            color: context.theme.photoIconBgColor,
+          ),
+          Column(
+            children: [
+              Expanded(
+                child: Container(),
+              ),
+              ChatTextField(receiverId: user.uid),
+            ],
           ),
         ],
       ),
